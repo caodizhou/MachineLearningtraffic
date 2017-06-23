@@ -48,7 +48,6 @@ public class Mongodb {
         System.out.println("Connect to database successfully");
         collection = mongoDatabase.getCollection(collectionname);
         System.out.println("集合选择成功");
-        System.out.println(collection.find().first());
     }
 
 

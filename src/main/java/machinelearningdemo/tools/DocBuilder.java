@@ -35,18 +35,6 @@ public class DocBuilder {
         points.add(Arrays.asList(p3));
         points.add(Arrays.asList(p4));
         points.add(Arrays.asList(p1));
-//        List<Double> p1 = new ArrayList<>();
-//        p1.add(lat1);
-//        p1.add(lng1);
-//        List<Double> p2 = new ArrayList<>();
-//        p2.add(lat2);
-//        p2.add(lng1);
-//        List<Double> p3 = new ArrayList<>();
-//        p3.add(lat2);
-//        p3.add(lng2);
-//        List<Double> p4 = new ArrayList<>();
-//        p4.add(lat1);
-//        p4.add(lng2);
         ArrayList<List<List<Double>>> geo = new ArrayList<>(1);
         geo.add(points);
         if(document==null)
