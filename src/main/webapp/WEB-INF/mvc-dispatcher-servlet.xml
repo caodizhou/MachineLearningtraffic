@@ -11,7 +11,7 @@
     <context:property-placeholder location="classpath:mongodb.properties" ignore-unresolvable="true"/>
     <!-- 静态资源(js、image等)的访问 -->
     <mvc:default-servlet-handler/>
-
+    <!--<mvc:resources mapping="/resources/**" location="pages/resources/"/>-->
     <!-- 开启注解 -->
     <mvc:annotation-driven/>
 

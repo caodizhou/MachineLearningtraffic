@@ -1,0 +1,12 @@
+.button-circle{
+    float: left;
+}
+
+#hidenLayers{
+    position: absolute;
+    left: 30%;
+}
+#neuralnodes{
+    position: absolute;
+    top:10%;
+}
