@@ -110,9 +110,9 @@ var color = d3.scale.category20();
 //     var node = new Object({"label":"","layer":3});
 //     nodes.push(node);
 // }
-var width = $("#neuralnet").width();
-var height = $("#neuralnet").height();
-var svg = d3.select("div#neuralnet").append("svg")
+var width = $("#neuralnodes").width();
+var height = $("#neuralnodes").height();
+var svg = d3.select("div#neuralnodes").append("svg")
     .attr("width", width)
     .attr("height", height);
 drawneuralnet(nodes);
@@ -151,7 +151,7 @@ function drawneuralnet(graph) {
     nodes.map(function (d, i) {
         for (var n in nodes) {
             if (d.layer + 1 == nodes[n].layer) {
-                links.push({"source": parseInt(i), "target": parseInt(n), "value": 1})
+                links.push({"source": parseInt(i), "target": parseInt(n), "value": 0.5})
             }
         }
     }).filter(function (d) {
@@ -176,7 +176,8 @@ function drawneuralnet(graph) {
             return nodes[d.target].y;
         })
         .style("stroke-width", function (d) {
-            return Math.sqrt(d.value);
+            // return Math.sqrt(d.value);
+            return 0.3;
         });
 
     // draw nodes
@@ -191,7 +192,7 @@ function drawneuralnet(graph) {
     var circle = node.append("circle")
         .attr("class", "node")
         .attr("r", function (d) {
-            return height / netsize[d.layer] / 4 > (height / 5 / 4) ? (height / 5 / 4) : height / netsize[d.layer] / 4
+            return height / netsize[d.layer] / 2.5 > (height / 5 / 4) ? (height / 5 / 4) : height / netsize[d.layer] / 2.5
         })
         .style("fill", function (d) {
             return color(d.layer);

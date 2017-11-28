@@ -4,9 +4,28 @@
 
 #hidenLayers{
     position: absolute;
-    left: 30%;
+    left: 28%;
 }
 #neuralnodes{
     position: absolute;
-    top:10%;
+    top:62%;
+    height: 23%;
+    width: 60%;
+}
+#hidenLayer{
+    position: absolute;
+    top:58%;
+    left: 29%;
+    height: 25%;
+    width: 60%;
+}
+input.form-control{
+    float: left;
+    width: 4.5%;
+    height: 11%;
+    margin: 0 6px;
+}
+#neuralparam{
+    position: absolute !important;
+    top:85%;
 }

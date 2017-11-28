@@ -87,4 +87,8 @@ public class Mongodb {
                 ", collection='" + collectionname + '\'' +
                 '}';
     }
+
+    public MongoDatabase getMongoDatabase() {
+        return mongoDatabase;
+    }
 }

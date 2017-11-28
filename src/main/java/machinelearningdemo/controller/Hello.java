@@ -36,9 +36,6 @@ public class Hello {
     @ResponseBody
     public String test() {
         System.out.println(testservice.getHahaha());
-//        System.out.println(haha);
-        Document document = new Document("hphm","浙A386SU");
-        mongoDao.selectCountByDoc(document);
         test.test();
         return testservice.getHahaha();
     }

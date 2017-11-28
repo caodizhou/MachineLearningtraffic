@@ -23,7 +23,11 @@ public class DocBuilder {
             document = new Document();
         document.append("date",new Document("$gte",starttime).append("$lte",endtime));
     }
-
+//    public void setTimerange(Date starttime, Date endtime){
+//        if(document==null)
+//            document = new Document();
+//        document.put("date",new Document("$gte",starttime).append("$lte",endtime));
+//    }
     public void addgeolimit(double lng1,double lat1,double lng2,double lat2){
         List<List<Double>> points = new ArrayList<>(4);
         Double[] p1 = {lat1,lng1};
@@ -50,6 +54,12 @@ public class DocBuilder {
         if(document==null)
             document = new Document();
         document.append("clsd",new Document("$gte",s1).append("$lte",s2));
+    }
+
+    public void addkkidlimit(String kkid){
+        if(document==null)
+            document = new Document();
+        document.append("kkid",kkid);
     }
 
 

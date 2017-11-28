@@ -5,23 +5,26 @@ package machinelearningdemo.dto;
  */
 public class Kkflow {
     private String kkid;
-    private int[] flow;
+    private double[] flow;
     private double[] avgSpeed;
 
     public Kkflow() {
     }
 
-    public Kkflow(String kkid, int[] flow) {
+    public Kkflow(String kkid, double[] flow) {
         this.kkid = kkid;
         this.flow = flow;
     }
 
-    public Kkflow(String kkid, int flow[], double[] avgSpeed) {
+    public Kkflow(String kkid, double flow[], double[] avgSpeed) {
         this.kkid = kkid;
         this.flow = flow;
         this.avgSpeed = avgSpeed;
     }
 
+    public double[] todoublearray(){
+        return flow;
+    }
 
     public String getKkid() {
         return kkid;
@@ -31,11 +34,11 @@ public class Kkflow {
         this.kkid = kkid;
     }
 
-    public int[] getFlow() {
+    public double[] getFlow() {
         return flow;
     }
 
-    public void setFlow(int[] flow) {
+    public void setFlow(double[] flow) {
         this.flow = flow;
     }
 

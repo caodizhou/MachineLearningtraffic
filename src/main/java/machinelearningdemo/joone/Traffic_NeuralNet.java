@@ -19,20 +19,33 @@ public class Traffic_NeuralNet implements NeuralNetListener {
     private SigmoidLayer output;
     private SigmoidLayer hidden;
     private List<SigmoidLayer> hiddenLayerList;
-    private boolean singleThreadMode = true;
+    private boolean singleThreadMode = false;
     private double[][] desiredOutputArray;
     private double[][] inputArray;
     private double[][] testArray;
+
+    public void setDesiredOutputArray(double[][] desiredOutputArray) {
+        this.desiredOutputArray = desiredOutputArray;
+    }
+
+    public void setInputArray(double[][] inputArray) {
+        this.inputArray = inputArray;
+    }
+
+    public void setTestArray(double[][] testArray) {
+        this.testArray = testArray;
+    }
+
     private double learningRate;
     private double momentum;
     private int totCicles;
     private int hiddenLayerlength;
     public void train(){
         inputSynapse.setInputArray(inputArray);
-        inputSynapse.setAdvancedColumnSelector(" 1,2,3 ");
+        inputSynapse.setAdvancedColumnSelector(" 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24 ");
         // set the desired outputs
         desiredOutputSynapse.setInputArray(desiredOutputArray);
-        desiredOutputSynapse.setAdvancedColumnSelector(" 1 ");
+        desiredOutputSynapse.setAdvancedColumnSelector(" 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24 ");
 
         // get the monitor object to train or feed forward
         Monitor monitor = nnet.getMonitor();
@@ -53,7 +66,7 @@ public class Traffic_NeuralNet implements NeuralNetListener {
                 + (System.currentTimeMillis() - initms) + "  ms ");
     }
 
-    private void interrogate()
+    public void interrogate()
     {
 //
 //        double[][] inputArray = new double[][]
@@ -61,7 +74,7 @@ public class Traffic_NeuralNet implements NeuralNetListener {
 //                        { 1.0, 1.0 } };
         // set the inputs
         inputSynapse.setInputArray(testArray);
-        inputSynapse.setAdvancedColumnSelector(" 1,2,3 ");
+        inputSynapse.setAdvancedColumnSelector(" 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24 ");
         Monitor monitor = nnet.getMonitor();
         monitor.setTrainingPatterns(testArray.length);
         monitor.setTotCicles(1);
@@ -80,13 +93,16 @@ public class Traffic_NeuralNet implements NeuralNetListener {
             {
                 double[] pattern = memOut.getNextPattern();
                 System.out.println(" Output pattern # " + (i + 1) + " = "
-                        + pattern[0]);
+                        );
+                for(double p:pattern){
+                    System.out.print(" "+p);
+                }
             }
             System.out.println(" Interrogating Finished ");
         }
     }
 
-    protected void initNeuralNet()
+    public void initNeuralNet()
     {
 
         // First create the three layers
@@ -95,8 +111,8 @@ public class Traffic_NeuralNet implements NeuralNetListener {
         output = new SigmoidLayer();
 
         // set the dimensions of the layers
-        input.setRows(48);
-        hidden.setRows(50);
+        input.setRows(24);
+        hidden.setRows(70);
         output.setRows(24);
 
         input.setLayerName(" L.input ");
