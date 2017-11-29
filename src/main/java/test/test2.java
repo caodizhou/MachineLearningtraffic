@@ -26,7 +26,7 @@ public class test2 {
     @Autowired
     private Mongodb mongodb;
 
-    void generateTrainData(){
+    public void generateTrainData(){
         MongoDatabase mongoDatabase =  mongodb.getMongoDatabase();
         mongoDatabase.createCollection("trainData");
         MongoCollection<Document> collection = mongoDatabase.getCollection("trainData");

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import test.Test;
+import test.test2;
 
 /**
  * Created by cdz on 2017/6/8.
@@ -36,7 +37,9 @@ public class Hello {
     @ResponseBody
     public String test() {
         System.out.println(testservice.getHahaha());
-        test.test();
+//        test.test();
+        test2 test2 = new test2();
+        test2.generateTrainData();
         return testservice.getHahaha();
     }
 
