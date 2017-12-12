@@ -33,12 +33,15 @@ public class Hello {
     @Autowired
     private Test test;
 
+    @Autowired
+    private test2 test2;
+
     @RequestMapping(value = "/lssb", method = RequestMethod.GET)
     @ResponseBody
     public String test() {
         System.out.println(testservice.getHahaha());
 //        test.test();
-        test2 test2 = new test2();
+//        test2 test2 = new test2();
         test2.generateTrainData();
         return testservice.getHahaha();
     }

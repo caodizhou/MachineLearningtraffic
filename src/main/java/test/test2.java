@@ -56,6 +56,10 @@ public class test2 {
                     Document temp = cursor.next();
                     timeflow[j] = temp.getInteger("flow");
                     j++;
+                    Document doc = new Document("flow",temp.getInteger("flow"));
+                    int day = localDateTime.getDayOfMonth();
+                    doc.append("day",day);
+//                    doc.append("hour",document.get)
                 }
 //                Document doc = new Document("");
 
