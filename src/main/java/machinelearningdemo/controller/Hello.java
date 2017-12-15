@@ -42,7 +42,7 @@ public class Hello {
         System.out.println(testservice.getHahaha());
 //        test.test();
 //        test2 test2 = new test2();
-        test2.generateTrainData();
+//        test2.generateTrainData();
         return testservice.getHahaha();
     }
 

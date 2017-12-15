@@ -41,7 +41,7 @@ public class Test {
         List<Kkflow> kkflowinput = new ArrayList<>(10000);
         List<Kkflow> kkflowoutput = new ArrayList<>(10000);
         DocBuilder docBuilder = new DocBuilder();
-//        docBuilder.addkkidlimit("310003000054");
+        docBuilder.addkkidlimit("310003000054");
         for (int i=0;i<7;i++){
             docBuilder.addTimerange(date,date2);
             kkflowinput.addAll(mongoDao.selectGroupBykkCountByDoc(docBuilder.getDocument(),date,date2).get(0));
