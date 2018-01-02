@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -43,7 +44,14 @@ public class Hello {
 //        test.test();
 //        test2 test2 = new test2();
 //        test2.generateTrainData();
+        test2.test();
         return testservice.getHahaha();
+    }
+
+    @PostMapping(value = "/heatmap")
+    @ResponseBody
+    public String getHeatMap(){
+        return "";
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)

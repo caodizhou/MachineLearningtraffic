@@ -4,15 +4,15 @@
 function heatmapAJAX(a) {
     // console.log(d3.select(this).attr("id"));
     var data = new Object();
-    data.fz = a.attr("fz")
-    data.cphm = a.attr("cphm");
-    data.cllx = a.attr("cllx");
-    data.oo = a.attr("oo");
-    data.dd = a.attr("dd");
-    adddate(data);
-    if(polyset!=null)
-        data.polygon = polyset;
-    else data.polygon = "";
+    // data.fz = a.attr("fz")
+    // data.cphm = a.attr("cphm");
+    // data.cllx = a.attr("cllx");
+    // data.oo = a.attr("oo");
+    // data.dd = a.attr("dd");
+    // adddate(data);
+    // if(polyset!=null)
+    //     data.polygon = polyset;
+    // else data.polygon = "";
     console.log(data);
     $.ajax({
         url: "Heatmap",
@@ -20,12 +20,12 @@ function heatmapAJAX(a) {
         data: data,
         dataType: "json",
         beforeSend: function () {
-            remvoheatmap();
-            removepath();
+            // remvoheatmap();
+            // removepath();
         },
         success: function(global) {
             // getcoor(global);
-            console.log(global);
+            // console.log(global);
             creatheatmap(global);
         }
     });

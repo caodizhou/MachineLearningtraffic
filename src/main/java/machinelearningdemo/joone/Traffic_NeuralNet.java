@@ -95,7 +95,7 @@ public class Traffic_NeuralNet implements NeuralNetListener {
                 System.out.println(" Output pattern # " + (i + 1) + " = "
                         );
                 for(double p:pattern){
-                    System.out.print(" "+p);
+                    System.out.print(" "+p*5000);
                 }
             }
             System.out.println(" Interrogating Finished ");
@@ -152,6 +152,7 @@ public class Traffic_NeuralNet implements NeuralNetListener {
         nnet.setTeacher(trainer);
         output.addOutputSynapse(trainer);
         nnet.addNeuralNetListener(this);
+
     }
 
     @Override
@@ -172,6 +173,11 @@ public class Traffic_NeuralNet implements NeuralNetListener {
     @Override
     public void netStopped(NeuralNetEvent neuralNetEvent) {
         Monitor mon = (Monitor) neuralNetEvent.getSource();
+        double [] test = hidden.getLastOutputs();
+        for(double d : test){
+            if(d<1)
+            System.out.println(" d=? "+d+" d=! ");
+        }
         System.out.println(" Network stopped. Last RMSE= "
                 + mon.getGlobalError());
     }
