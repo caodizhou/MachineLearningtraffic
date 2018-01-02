@@ -1,9 +1,10 @@
 package machinelearningdemo.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.serializer.SerializerFeature;
 import machinelearningdemo.dao.MongoDao;
+import machinelearningdemo.service.HeatmapService;
 import machinelearningdemo.service.Testservice;
-import machinelearningdemo.tools.DocBuilder;
-import org.bson.Document;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ComponentScan;
@@ -24,6 +25,9 @@ import test.test2;
 public class Hello {
     @Autowired
     Testservice testservice;
+
+    @Autowired
+    HeatmapService heatmapService;
 
     @Autowired
     private MongoDao mongoDao;
@@ -51,7 +55,8 @@ public class Hello {
     @PostMapping(value = "/heatmap")
     @ResponseBody
     public String getHeatMap(){
-        return "";
+        SerializerFeature feature = SerializerFeature.DisableCircularReferenceDetect;
+        return JSON.toJSONString(heatmapService.getHeatmapData(),feature);
     }
 
     @RequestMapping(value = "/", method = RequestMethod.GET)

@@ -11,6 +11,9 @@ public class Kkinfo {
 
     private HashMap<String, Coordinate> coordinatemap;
 
+    public HashMap<String, Coordinate> getCoordinatemap() {
+        return coordinatemap;
+    }
 
     public Kkinfo(){
         File ff = new File("d:/kk_info.txt");

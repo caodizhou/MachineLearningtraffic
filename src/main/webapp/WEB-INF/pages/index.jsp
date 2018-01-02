@@ -157,6 +157,7 @@
 
 <script src="/resources/JS/datecontrol.js"></script>
 <script src="/resources/JS/Leaflet.js"></script>
+<script src="/resources/JS/Heatmap.js"></script>
 <script src="/resources/JS/drawneural.js"></script>
 <script src="/resources/JS/pie.js"></script>
 </body>
