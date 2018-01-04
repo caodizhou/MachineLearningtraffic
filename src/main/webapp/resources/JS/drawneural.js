@@ -5,19 +5,19 @@ var nodes=[
     {"label": "", "layer": 1},
     {"label": "", "layer": 1},
     {"label": "", "layer": 1},
+    // {"label": "", "layer": 1},
+    // {"label": "", "layer": 1},
+    // {"label": "", "layer": 1},
+    // {"label": "", "layer": 1},
+    // {"label": "", "layer": 1},
+    // {"label": "", "layer": 1},
+    // {"label": "", "layer": 1},
     {"label": "", "layer": 1},
     {"label": "", "layer": 1},
     {"label": "", "layer": 1},
     {"label": "", "layer": 1},
     {"label": "", "layer": 1},
     {"label": "", "layer": 1},
-    {"label": "", "layer": 1},
-    {"label": "", "layer": 1},
-    {"label": "", "layer": 1},
-    {"label": "", "layer": 1},
-    {"label": "", "layer": 1},
-    {"label": "", "layer": 1},
-    {"label": "", "layer": 1},
     {"label": "", "layer": 2},
     {"label": "", "layer": 2},
     {"label": "", "layer": 2},
@@ -37,16 +37,16 @@ var nodes=[
     {"label": "", "layer": 2},
     {"label": "", "layer": 2},
     {"label": "", "layer": 2},
-    {"label": "", "layer": 2},
-    {"label": "", "layer": 2},
-    {"label": "", "layer": 2},
-    {"label": "", "layer": 2},
-    {"label": "", "layer": 2},
-    {"label": "", "layer": 2},
-    {"label": "", "layer": 2},
-    {"label": "", "layer": 2},
-    {"label": "", "layer": 2},
-    {"label": "", "layer": 2},
+    // {"label": "", "layer": 2},
+    // {"label": "", "layer": 2},
+    // {"label": "", "layer": 2},
+    // {"label": "", "layer": 2},
+    // {"label": "", "layer": 2},
+    // {"label": "", "layer": 2},
+    // {"label": "", "layer": 2},
+    // {"label": "", "layer": 2},
+    // {"label": "", "layer": 2},
+    // {"label": "", "layer": 2},
     {"label": "", "layer": 2},
     {"label": "", "layer": 2},
     {"label": "", "layer": 2},
@@ -69,15 +69,15 @@ var nodes=[
     {"label": "", "layer": 3},
     {"label": "", "layer": 3},
     {"label": "", "layer": 3},
-    {"label": "", "layer": 3},
-    {"label": "", "layer": 3},
-    {"label": "", "layer": 3},
-    {"label": "", "layer": 3},
-    {"label": "", "layer": 3},
-    {"label": "", "layer": 3},
-    {"label": "", "layer": 3},
-    {"label": "", "layer": 3},
-    {"label": "", "layer": 3},
+    // {"label": "", "layer": 3},
+    // {"label": "", "layer": 3},
+    // {"label": "", "layer": 3},
+    // {"label": "", "layer": 3},
+    // {"label": "", "layer": 3},
+    // {"label": "", "layer": 3},
+    // {"label": "", "layer": 3},
+    // {"label": "", "layer": 3},
+    // {"label": "", "layer": 3},
     {"label": "", "layer": 3},
     {"label": "", "layer": 3},
     {"label": "", "layer": 3},
@@ -85,7 +85,16 @@ var nodes=[
 ];
 
 var color = d3.scale.category20();
+var line = d3.svg.line()
+//		.interpolate(function(points) { return points.join("A 150,150 0 0 0"); })
+    .interpolate(function(points,d) {//sole.log(points);
+//		return points.join("A " + rxy + "," + rxy + " 0 0 0");
+//			console.log(d);
+        return points.join("C " + d.x1+" "+d.y1+" "+d.x2+" "+d.y2+"," );
+    })
 
+    .x(function(d) { return d.x; })
+    .y(function(d) { return d.y; });
 /*{
     "nodes": [
     {"label": "i0", "layer": 1},
@@ -159,26 +168,41 @@ function drawneuralnet(graph) {
     });
 
     // draw links
+    // var link = svg.selectAll(".link")
+    //     .data(links)
+    //     .enter().append("line")
+    //     .attr("class", "link")
+    //     .attr("x1", function (d) {
+    //         return nodes[d.source].x;
+    //     })
+    //     .attr("y1", function (d) {
+    //         return nodes[d.source].y;
+    //     })
+    //     .attr("x2", function (d) {
+    //         return nodes[d.target].x;
+    //     })
+    //     .attr("y2", function (d) {
+    //         return nodes[d.target].y;
+    //     })
+    //     .style("stroke-width", function (d) {
+    //         // return Math.sqrt(d.value);
+    //         return 0.3;
+    //     });
     var link = svg.selectAll(".link")
         .data(links)
-        .enter().append("line")
-        .attr("class", "link")
-        .attr("x1", function (d) {
-            return nodes[d.source].x;
-        })
-        .attr("y1", function (d) {
-            return nodes[d.source].y;
-        })
-        .attr("x2", function (d) {
-            return nodes[d.target].x;
-        })
-        .attr("y2", function (d) {
-            return nodes[d.target].y;
-        })
-        .style("stroke-width", function (d) {
-            // return Math.sqrt(d.value);
-            return 0.3;
-        });
+        .enter().append("path")
+        .attr("class",".link")
+        .attr("d",function (d) {
+            return "M"+nodes[d.source].x+" "+nodes[d.source].y+"C"+(nodes[d.source].x+nodes[d.target].x)/2+" "
+                +nodes[d.source].y+" "+(nodes[d.source].x+nodes[d.target].x)/2+" "+nodes[d.target].y+","
+                +nodes[d.target].x+" "+nodes[d.target].y;
+        }).style("stroke-width", function (d) {
+                    // return Math.sqrt(d.value);
+                    return 0.3;
+                })
+        .style("stroke","red")
+        .style("fill","none");
+        
 
     // draw nodes
     var node = svg.selectAll(".node")

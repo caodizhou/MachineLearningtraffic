@@ -22,12 +22,13 @@
     <link rel="stylesheet" href="/resources/CSS/button.css">
 
 
-
     <!--JS文件-->
     <script type="text/javascript" src="/resources/JSLIB/d3/d3.js" charset="utf-8"></script>
     <script src="/resources/JSLIB/jquery/jquery-2.1.4.min.js"></script>
-    <script type="text/javascript" src="/resources/JSLIB/bootstrap/bootstrap-datetimepicker.js" charset="UTF-8"></script>
-    <script type="text/javascript" src="/resources/JSLIB/bootstrap/bootstrap-datetimepicker.fr.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="/resources/JSLIB/bootstrap/bootstrap-datetimepicker.js"
+            charset="UTF-8"></script>
+    <script type="text/javascript" src="/resources/JSLIB/bootstrap/bootstrap-datetimepicker.fr.js"
+            charset="UTF-8"></script>
     <script type="text/javascript" src="/resources/JSLIB/leaflet/leaflet.js"></script>
     <script type="text/javascript" src="/resources/JSLIB/material/material.min.js"></script>
     <script type="text/javascript" src="/resources/JS/Button.js"></script>
@@ -36,44 +37,45 @@
     <script src="/resources/JSLIB/bootstrap/bootstrap.min.js"></script>
 
 
-
-
 </head>
 
 
 <body>
 <div id="div1">
-    <div id="timepick">
-        <p style="float: left;font-size: larger;vertical-align: middle;line-height: 32px;margin: 0 6px;">开始</p>
-        <div class="input-group date form_datetime col-md-3 column" data-date="2016-01-01T06:00:07Z"
-             data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1" id="dateinput1">
-            <input class="form-control" size="10" type="text" value="" readonly>
-            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-            <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-        </div>
-        <p style="float: left;font-size: larger;vertical-align: middle;line-height: 32px;margin: 0 6px;">结束</p>
-        <div class="input-group date form_datetime col-md-3 column" data-date="2016-01-01T15:25:07Z"
-             data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input2" id="dateinput2">
-            <input class="form-control" size="10" type="text" value="" readonly>
-            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
-            <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
-        </div>
-        <input type="hidden" id="dtp_input1" value="2016-01-01 00:00:07"/><br/>
-        <input type="hidden" id="dtp_input2" value="2016-01-02 00:00:07"/><br/>
+    <div >
+        <div id="timepick" style="height:35px">
+            <p style="float: left;font-size: larger;vertical-align: middle;line-height: 32px;margin: 0 6px;">开始</p>
+            <div class="input-group date form_datetime col-md-3 column" data-date="2016-01-01T06:00:07Z"
+                 data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input1" id="dateinput1">
+                <input class="form-control" size="10" type="text" value="" readonly>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+            </div>
+            <p style="float: left;font-size: larger;vertical-align: middle;line-height: 32px;margin: 0 6px;">结束</p>
+            <div class="input-group date form_datetime col-md-3 column" data-date="2016-01-01T15:25:07Z"
+                 data-date-format="dd MM yyyy - HH:ii p" data-link-field="dtp_input2" id="dateinput2">
+                <input class="form-control" size="10" type="text" value="" readonly>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                <span class="input-group-addon"><span class="glyphicon glyphicon-th"></span></span>
+            </div>
+            <input type="hidden" id="dtp_input1" value="2016-01-01 00:00:07"/><br/>
+            <input type="hidden" id="dtp_input2" value="2016-01-02 00:00:07"/><br/>
 
+        </div>
     </div>
+
     <div id="map">
 
     </div>
 
     <div id="neuralnet">
         <div id="hidenLayers">
-            <button class="button button-circle " ><i class="fa fa-plus"></i></button>
+            <button class="button button-circle "><i class="fa fa-plus"></i></button>
             <button class="button button-circle "><i class="fa fa-minus"></i></button>
             <p style="float: left;font-size: larger;vertical-align: middle;line-height: 38px;margin: 0 6px;">1隐藏层</p>
         </div>
         <div id="hidenLayer">
-            <button class="button button-circle button-tiny" ><i class="fa fa-plus"></i></button>
+            <button class="button button-circle button-tiny"><i class="fa fa-plus"></i></button>
             <button class="button button-circle button-tiny"><i class="fa fa-minus"></i></button>
             <input type="text" class="form-control" value="70">
 
@@ -84,14 +86,17 @@
             <div id="top-controls">
                 <div class="container l--page">
                     <div class="timeline-controls">
-                        <button class="mdl-button mdl-js-button mdl-button--icon ui-resetButton" id="reset-button" title="Reset the network" data-upgraded=",MaterialButton">
+                        <button class="mdl-button mdl-js-button mdl-button--icon ui-resetButton" id="reset-button"
+                                title="Reset the network" data-upgraded=",MaterialButton">
                             <i class="material-icons">replay</i>
                         </button>
-                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored ui-playButton" id="play-pause-button" title="Run/Pause" data-upgraded=",MaterialButton">
+                        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--colored ui-playButton"
+                                id="play-pause-button" title="Run/Pause" data-upgraded=",MaterialButton">
                             <i class="material-icons">play_arrow</i>
                             <i class="material-icons">pause</i>
                         </button>
-                        <button class="mdl-button mdl-js-button mdl-button--icon ui-stepButton" id="next-step-button" title="Step" data-upgraded=",MaterialButton">
+                        <button class="mdl-button mdl-js-button mdl-button--icon ui-stepButton" id="next-step-button"
+                                title="Step" data-upgraded=",MaterialButton">
                             <i class="material-icons">skip_next</i>
                         </button>
                     </div>
@@ -157,6 +162,7 @@
 
 <script src="/resources/JS/datecontrol.js"></script>
 <script src="/resources/JS/Leaflet.js"></script>
+<script src="/resources/JSLIB/leaflet/leaflet-heat.js"></script>
 <script src="/resources/JS/Heatmap.js"></script>
 <script src="/resources/JS/drawneural.js"></script>
 <script src="/resources/JS/pie.js"></script>

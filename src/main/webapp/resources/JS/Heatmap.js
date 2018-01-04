@@ -13,9 +13,8 @@ function heatmapAJAX(a) {
     // if(polyset!=null)
     //     data.polygon = polyset;
     // else data.polygon = "";
-    console.log(data);
     $.ajax({
-        url: "Heatmap",
+        url: "heatmap",
         type: "POST",
         data: data,
         dataType: "json",
@@ -25,7 +24,7 @@ function heatmapAJAX(a) {
         },
         success: function(global) {
             // getcoor(global);
-            // console.log(global);
+            console.log(global);
             creatheatmap(global);
         }
     });
